@@ -1,0 +1,14 @@
+{% form_theme sp_form 'bootstrap_5_layout.html.twig'%}
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NoteController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    {{form_start(sp_form)}}
+    {{form_widget(sp_form)}}
+    <input type="submit" value="submit" class="btn btn-primary" ?>
+    {{form_end(sp_form)}}
+</div>
+{% endblock %}

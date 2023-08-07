@@ -1,0 +1,66 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NoteController!{% endblock %}
+
+{% block body %}
+<body>
+    <header>
+        <h2 class="logo"> BAO BAO STORE </h2>
+            <nav class="navigation">
+                <a href="{{path('app_user_manager')}}"class="btnLogin-popup">account management</a>
+                <a href="{{path('app_san_pham')}}" class = "btnLogin-popup">Add Product</a>
+                <a href="{{path('app_contact')}}" class ="btnLogin-popup">Feedback</a>
+                <a href="{{path('app_user_manager_add')}}"class="btnLogin-popup">Add Admin</a>
+                <a href="{{path('app_ds_Invoice')}}"class="btnLogin-popup">Invoice</a>
+                <a href="{{path('app_login')}}"class="btnLogin-popup">Logout</a>
+            </nav>
+    </header>
+</body>
+<div class="container">
+        {# <a href="{{path('app_san_pham')}}" class="btn btn-dark"> Add </a>
+        <a href="{{path('app_logout')}}" class="btn btn-danger"> Logout</a> #}
+    <table class=" table">
+        <thead>
+            <tr>
+                <td> STT</td>
+                <td> Code Product </td>
+                <td> Name Product </td>
+                <td>Price</td>
+                <td> Photo </td>
+                <td>Act</td>
+            </tr>
+        </thead>
+        <body>
+        {% for sp in data %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{sp.getId()}}</td>
+            <td>{{sp.getName()}}</td>
+        
+            <td>{{sp.getPrice()}}</td>
+            <td><img src="{{asset ('uploads/sanpham/' ~ sp.getPhoto())}}" height="70"/></td>
+            <td>
+                     <a href="{{path('app_edit_san_pham',{'id' :sp.getId()})}}" class ="btn btn-danger"> Edit </a>
+                     <a href="javascript:deletesp('{{path('app_delete_san_pham',{'id':sp.getId()})}}')" class="btn btn-warning"> Delete</a>
+                        <form>
+                            <button type="submit" formmethod="post" formaction="{{path('app_cart_add',{'product_id':sp.getId()})}}" class="btn btn-dark">Add to cart</button>
+                        </form>
+                     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}"/>
+                     <link rel="stylesheet" href="{{asset('css/list.css')}}"/>
+             </td>
+        </tr>
+        {% endfor %}
+        </body>
+    </table>
+</div>
+{% endblock %}
+    {% block javascripts %}
+    <script>
+        function deletesp(url){
+            if(confirm("Do you detele product?")){
+                window.location.href = url;
+                }
+        }
+    </script>
+    {% endblock %} 

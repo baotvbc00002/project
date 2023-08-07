@@ -1,0 +1,50 @@
+{% form_theme order_form 'bootstrap_4_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Cart manager
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+        {{form_start(order_form)}}
+            {{form_widget(order_form)}}
+            <input type="submit" value="Confirm" class="btn btn-primary" />
+        {{form_end(order_form)}}
+		<table class="table">
+			<tr>
+				<th>STT</th>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Total</th>
+			</tr>
+			{% for item in cart_manager.items %}
+				<tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{item.product.id}}
+                        -
+                        {{item.product.name}}</td>
+                    <td>{{item.product.price}}</td>
+                    <td>
+                        {{item.quantity}}
+                    </td>
+                    <td>{{item.amount}}</td>
+				</tr>
+			{% endfor %}
+			<tr>
+				<td colspan='4' class='text-center'>SUM</td>
+				<td>{{cart_manager.amount}}</td>
+			</tr>
+		</table>
+	</div>
+{% endblock %}
+{% block javascripts %}
+{% if message is not empty %}
+    <script> alert("{{message}}");</script>
+{% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')}}"/>
+<link rel="stylesheet" href="{{asset('css/cart.css')}}"/>
+{% endblock %}

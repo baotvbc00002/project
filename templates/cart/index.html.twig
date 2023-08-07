@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cart manager
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<a href="{{path('app_ds_san_pham')}}" class="btn btn-outline-primary">Add another product</a>
+		<table class="table">
+			<tr>
+				<th>STT</th>
+				<th>Product</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Total</th>
+				<th>Action</th>
+			</tr>
+			{% for item in cart_manager.items %}
+				<tr>
+					<form action="{{path('app_cart_update')}}" method="POST">
+						<td>{{loop.index}}</td>
+						<td>{{item.product.id}}
+							-
+							{{item.product.name}}</td>
+						<td>{{item.product.price}}</td>
+						<td>
+                            <input type='hidden' value='{{item.product.id}}' name='product_id'/>
+							<input type='number' onchange="this.form.submit()" value='{{item.quantity}}' min="1" name='qty'/>
+						</td>
+						<td>{{item.amount}}</td>
+						<td>
+							<a href="{{path('app_cart_remove',{'product_id':item.product.id})}}">Remove</a>
+						</td>
+					</form>
+				</tr>
+			{% endfor %}
+			<tr>
+			<td colspan='5' >SUM</td>
+			<td>{{cart_manager.amount}}</td>
+			<a href="{{path('app_order')}}" class ="btn btn-danger">Order</a>
+		
+			</tr>
+		</table>
+		<a></a>
+	</div>
+{% endblock %}
+{% block javascripts %}
+{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css')}}"/>
+<link rel="stylesheet" href="{{asset('css/cart.css')}}"/>
+{% endblock %}

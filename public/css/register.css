@@ -1,0 +1,143 @@
+.container{
+    position: relative;
+    width: 350px;
+    height: 530px;
+    background: transparent;
+    border: 2px solid black(255,255,255,.5);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30 rgba(0, 0, 0, .5);
+    background-color:black;
+    color: aliceblue;
+    margin-top: 200px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    
+}
+.TD{
+    text-align: center;
+
+}
+.style{
+    margin-right: 200px;
+}
+
+body{
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; */
+    background: url('background.jpg') no-repeat;
+    width: 100%;
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    /* background: black; */
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+.logo{
+    /* font-size: 1.5cm;
+    user-select: none;
+    color: #fff; */
+    /* img { */
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        width: 150px;
+      /* } */
+      
+       /* src="logo.jpg" alt="Paris" */
+}
+.navigation a {
+    position: relative;
+    font-size: 0.65cm;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    color: #fff;
+}
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnRegister-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.65cm;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnRegister-popup:hover{
+    background: #fff;
+    color: #162938;
+}
+
+.st{
+    text-align: center;
+    font-size: 1cm;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background-color:#3d4953;
+     border: none;
+     outline: none;
+     border-radius: 4px;
+     cursor: pointer;
+     font-size: 0.5cm;
+     color: #fff;
+     font-weight: 500;
+}
+.login-register{
+    font-size: 0.4cm;
+    color:#fff;
+    text-align: center;
+    font-weight: 200;
+    margin: 25px 0 10px;
+}
+
+.login-register p a{
+    color: #c7dff1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+
+}

@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Invoice!{% endblock %}
+
+{% block body %}
+<body>
+    <header>
+        <h2 class="logo"> BAO BAO STORE </h2>
+            <nav class="navigation">
+                <a href="{{path('app_user_manager')}}"class="btnLogin-popup">account management</a>
+                <a href="{{path('app_san_pham')}}" class = "btnLogin-popup">Add Product</a>
+                <a href="{{path('app_contact')}}" class ="btnLogin-popup">Feedback</a>
+                <a href="{{path('app_user_manager_add')}}"class="btnLogin-popup">Add Admin</a>
+				<a href="{{path('app_ds_Invoice')}}"class="btnLogin-popup">Invoice</a>
+                <a href="{{path('app_login')}}"class="btnLogin-popup">Logout</a>
+            </nav>
+    </header>
+</body>
+<div class="container">
+
+    <table class="table" style="text-align: center"
+        <thead>
+            <tr >
+                <td> No </td>
+                <td> Invoice Code  </td>
+                <td> Customer Name </td>
+                <td> Address </td>
+                <td> Phone Number </td>
+                <td> Total Price </td>
+                {# <td> Status </td> #}
+                <td> Act </td>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for inv in data %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{inv.getId()}}</td>
+                    <td>{{inv.getCustomerName()}}</td>
+                    <td>{{inv.getCustomerAddress()}}</td>
+                    <td>{{inv.getCustomerPhone()}}</td>
+                    <td>{{inv.getTotalPrice()}}</td>
+                    {# <td>{{inv.isStatus()}}
+                        {% if isStatus() == false %}
+                            <p>Deliveried</p>
+                        {% elseif isStatus() == true %}
+                            <p>Deliverying</p>
+                    </td> #}
+                        
+                    <td>
+                        <a href="{{path('app_order',{'id':inv.getId()})}}" class="btn btn-warning"> Detail</a>
+                        <a href="javascript:deleteinv('{{path('app_delete_invoice',{'id':inv.getId()})}}')" class="btn btn-danger"> Delete</a> 
+						<link rel="stylesheet" href="{{asset('css/bootstrap.css')}}"/>
+                     <link rel="stylesheet" href="{{asset('css/list.css')}}"/>
+					</td>
+                </tr>
+             {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    function deleteinv(url){
+        if(confirm("Do you delete invoice?")){
+            window.location.href = url;
+        }
+    }
+</script>
+{% endblock %}

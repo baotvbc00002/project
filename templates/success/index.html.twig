@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NoteController!{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/bootstrap.css')}}"/>
+<link rel="stylesheet" href="{{asset('css/my.css')}}"/>
+{% endblock %}
+{% block body %}
+
+<div class="container">
+{# <style>
+        div.a {
+            text-align: center;
+            color: Red;
+        }
+</style>
+        <div class="a">
+        <h1><p>Form Successfully submited</p></h1>' #}
+    <h1> Feedback sent successfully</h1>
+    <p class= 'box'>{{message}} at {{created}} </p>
+</div>
+{% endblock %}

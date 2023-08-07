@@ -1,0 +1,26 @@
+/* Trang trí mỗi hàng trong giỏ hàng */
+tr {
+    background-color: #d83d0d;
+  }
+  
+  /* Trang trí các ô trong hàng */
+  td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Trang trí tiêu đề hàng */
+  th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+  }
+  
+  /* Trang trí nút xoá trong giỏ hàng */
+  .delete-button {
+    background-color: rgb(240, 237, 237);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }

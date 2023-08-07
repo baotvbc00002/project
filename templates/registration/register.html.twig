@@ -1,0 +1,87 @@
+{# {% form_theme registrationForm 'bootstrap_5_layout.html.twig'%}
+{% extends 'base.html.twig' %} #}
+
+{# {% block title %}Register{% endblock %} #}
+
+{# {% block body %}
+    <body>
+    
+            <header>
+                    <h2 class="logo">Logo</h2>
+                    <nav class="navigation">
+                    <a href="#">HOME</a>
+                    <a href="#">PRODUCT</a>
+                    <a href="#">SERVICES</a>
+                    <a href="#">CONTACT</a>
+                    <button class="btnLogin-popup"> Login </button>
+                    </nav>
+            </header>
+           
+            {# <h1 class ="Register">Register</h1>
+
+            {{ form_errors(registrationForm) }}
+
+            {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.username) }}
+                {{ form_row(registrationForm.first_name) }}
+                {{ form_row(registrationForm.last_name) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}
+                {{ form_row(registrationForm.agreeTerms) }}
+
+                <button type="submit" class="btn-primary">Register</button>
+            {{ form_end(registrationForm) }}
+            
+     
+    </body>
+{% endblock %}
+
+{% block stylesheet %}
+        <link rel="stylesheet" href="{{asset('css/style.css')}}" /> 
+        <title> BAOBAO STORE </title>
+{% endblock %} #}
+{% form_theme registrationForm 'bootstrap_5_layout.html.twig'%}
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<body>
+    <header>
+        <h2 class="logo">  BAO BAO STORE </h2>
+            <nav class="navigation">
+                {# <a href="{{path('app_success')}}" class ="btnLogin-popup">Services</a>
+                <a href="{{path('app_note')}}"class="btnLogin-popup">Contact</a> #}
+
+                <a href = "{{path('app_login')}}" class="btnRegister-popup">Login</a>
+            </nav>
+    </header>
+</body>
+
+<div class="container">
+    <h1 class="TD">Register</h1>
+    <hr>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.first_name) }}
+        {{ form_row(registrationForm.last_name) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button class"style" type="submit" class="btn btn-success">Register</button>
+        
+    {{ form_end(registrationForm) }}
+</div> 
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/bootstrap.css')}}"/>
+<link rel="stylesheet" href="{{asset('css/register.css')}}"/>
+{% endblock %}
